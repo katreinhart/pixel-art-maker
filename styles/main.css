@@ -7,12 +7,15 @@ html {
 .container {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 100px 100px 100px;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
 }
 
 .cell {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border: 1px solid black;
+}
+
+.pink {
   background-color: pink;
 }
