@@ -4,6 +4,8 @@ const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
 const palette = document.querySelectorAll('.palette-cell')
+const saveButton = document.getElementById('save-button')
+const loadButton = document.getElementById('load-button')
 
 const gameState = []
 const colors = [ 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'black', 'gray']
@@ -73,4 +75,24 @@ palette.forEach((colorBox, index) => {
     console.log('change active color to', colors[index])
     activeColor = index
   })
+})
+
+saveButton.addEventListener('click', function () {
+  let saveGame = JSON.stringify(gameState)
+  localStorage.setItem('state', saveGame)
+})
+
+
+loadButton.addEventListener('click', function() {
+  const loadGame = JSON.parse(localStorage.getItem('state'))
+  if(loadGame) {
+    for(let i=0; i < numRows; i++) {
+      const saveRow = loadGame[i]
+      for(let j=0; j < numCols; j++) {
+        gameState[i][j] = saveRow[j]
+      }
+      // gameState.push(newRow)
+    }
+  }
+  draw()
 })
