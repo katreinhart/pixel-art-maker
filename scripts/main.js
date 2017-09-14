@@ -51,7 +51,6 @@ draw = () => {
 
   palette.forEach((cell, index) => {
     cell.style.backgroundColor = colors[index]
-    // console.log('cell', cell, 'color', colors[index]);
   })
 }
 
@@ -60,11 +59,10 @@ draw()
 
 
 canvas.addEventListener('click', e => {
-  // console.log(e.clientX, e.clientY);
   // compute which cell you're in by the x/y
   let myX = Math.floor((e.clientX - 10)/cellSize)
   let myY = Math.floor((e.clientY - 80)/cellSize)
-  // fill that cell with the active color; or red.
+  // fill that cell with the active color.
   gameState[myY][myX]=activeColor
 
   draw()
@@ -91,7 +89,6 @@ loadButton.addEventListener('click', function() {
       for(let j=0; j < numCols; j++) {
         gameState[i][j] = saveRow[j]
       }
-      // gameState.push(newRow)
     }
   }
   draw()
