@@ -25,6 +25,7 @@ initializeGameState = () => {
     }
     gameState.push(newRow)
   }
+  activeColor=8
 }
 
 draw = () => {
@@ -56,7 +57,7 @@ initializeGameState()
 draw()
 
 
-canvas.addEventListener('mouseenter', e => {
+canvas.addEventListener('click', e => {
   // console.log(e.clientX, e.clientY);
   // compute which cell you're in by the x/y
   let myX = Math.floor((e.clientX - 10)/cellSize)
