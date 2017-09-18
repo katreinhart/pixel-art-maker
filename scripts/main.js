@@ -1,6 +1,6 @@
 
 
-const canvas = document.getElementById('canvas')
+const canvas = document.getElementById('myCanvas')
 const ctx = canvas.getContext('2d')
 
 const palette = document.querySelectorAll('.palette-cell')
@@ -15,7 +15,6 @@ const numCols = 80;
 
 ctx.strokeStyle="black"
 ctx.strokeRect(0,0,800,500)
-
 
 initializeGameState = () => {
   console.log('sanity check!');
@@ -57,16 +56,28 @@ draw = () => {
 initializeGameState()
 draw()
 
+let flag = false
 
-canvas.addEventListener('click', e => {
+canvas.addEventListener('mousedown', e => {
   // compute which cell you're in by the x/y
-  let myX = Math.floor((e.clientX - 10)/cellSize)
-  let myY = Math.floor((e.clientY - 80)/cellSize)
-  // fill that cell with the active color.
-  gameState[myY][myX]=activeColor
-
-  draw()
+  flag = true
 })
+
+canvas.addEventListener('mouseup', e => {
+  flag = false
+})
+
+canvas.addEventListener('mousemove', e => {
+  if(flag) {
+    let myX = Math.floor((e.clientX - 10)/cellSize)
+    let myY = Math.floor((e.clientY - 80)/cellSize)
+    // fill that cell with the active color.
+    gameState[myY][myX]=activeColor
+
+    draw()
+  }
+})
+
 
 palette.forEach((colorBox, index) => {
   colorBox.addEventListener('click', (e) => {
