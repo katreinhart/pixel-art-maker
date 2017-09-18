@@ -65,6 +65,7 @@ canvas.addEventListener('mousedown', e => {
 
 canvas.addEventListener('mouseup', e => {
   flag = false
+  console.log(e.clientX, e.clientY)
 })
 
 canvas.addEventListener('mousemove', e => {
@@ -88,12 +89,12 @@ palette.forEach((colorBox, index) => {
 
 saveButton.addEventListener('click', function () {
   let saveGame = JSON.stringify(gameState)
-  localStorage.setItem('state', saveGame)
+  localStorage.setItem('gameState1', saveGame)
 })
 
 
 loadButton.addEventListener('click', function() {
-  const loadGame = JSON.parse(localStorage.getItem('state'))
+  const loadGame = JSON.parse(localStorage.getItem('gameState1'))
   if(loadGame) {
     for(let i=0; i < numRows; i++) {
       const saveRow = loadGame[i]
