@@ -8,7 +8,7 @@ const saveButton = document.getElementById('save-button')
 const loadButton = document.getElementById('load-button')
 
 const gameState = []
-const colors = [ 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'black', 'gray']
+const colors = [ 'white', 'orangered', 'orange', 'gold', 'limegreen', 'skyblue', 'mediumpurple', 'chocolate', 'black', 'gray']
 const cellSize = 10;
 const numRows = 50;
 const numCols = 80;
