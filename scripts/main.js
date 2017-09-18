@@ -17,7 +17,6 @@ ctx.strokeStyle="black"
 ctx.strokeRect(0,0,800,500)
 
 initializeGameState = () => {
-  console.log('sanity check!');
   // set up the state of the canvas (i.e. an array of arrays of 0)
   for(let i=0; i < numRows; i++) {
     const newRow = []
@@ -59,13 +58,11 @@ draw()
 let flag = false
 
 canvas.addEventListener('mousedown', e => {
-  // compute which cell you're in by the x/y
   flag = true
 })
 
 canvas.addEventListener('mouseup', e => {
   flag = false
-  console.log(e.clientX, e.clientY)
 })
 
 canvas.addEventListener('mousemove', e => {
@@ -82,7 +79,6 @@ canvas.addEventListener('mousemove', e => {
 
 palette.forEach((colorBox, index) => {
   colorBox.addEventListener('click', (e) => {
-    console.log('change active color to', colors[index])
     activeColor = index
   })
 })
